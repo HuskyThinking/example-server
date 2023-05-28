@@ -5,6 +5,7 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -15,6 +16,8 @@ public class HuskyApplicationContext {
     private ConcurrentMap<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>();
 
     private ConcurrentMap<String, Object> singletonObject = new ConcurrentHashMap<>();
+
+    private ArrayList<BeanPostProcessor> beanPostProcessorList = new ArrayList<>();
 
     public HuskyApplicationContext(Class configClass) {
         this.configClass = configClass;
@@ -43,6 +46,11 @@ public class HuskyApplicationContext {
                             Class<?> clazz = classLoader.loadClass(className);
                             if (clazz.isAnnotationPresent(Component.class)) {
 
+                                if (BeanPostProcessor.class.isAssignableFrom(clazz)) {
+                                    BeanPostProcessor instance = (BeanPostProcessor)clazz.newInstance();
+                                    beanPostProcessorList.add(instance);
+                                }
+
                                 Component component = clazz.getAnnotation(Component.class);
                                 String beanName = component.value();
 
@@ -65,6 +73,10 @@ public class HuskyApplicationContext {
                             }
 
                         } catch (ClassNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (InstantiationException e) {
+                            e.printStackTrace();
+                        } catch (IllegalAccessException e) {
                             e.printStackTrace();
                         }
                     }
@@ -118,6 +130,24 @@ public class HuskyApplicationContext {
                     f.setAccessible(true);
                     f.set(instance,getBean(f.getName()));
                 }
+            }
+
+            // Aware回调
+            if (instance instanceof BeanNameAware) {
+                ((BeanNameAware) instance).setBeanName(beanName);
+            }
+
+            for (BeanPostProcessor beanPostProcessor : beanPostProcessorList) {
+                instance = beanPostProcessor.postProcessBeforeInitialization(beanName,instance);
+            }
+
+            // 初始化
+            if (instance instanceof InitializingBean) {
+                ((InitializingBean) instance).afterPropertiesSet();
+            }
+
+            for (BeanPostProcessor beanPostProcessor : beanPostProcessorList) {
+                instance = beanPostProcessor.postProcessAfterInitialization(beanName,instance);
             }
 
             return instance;
