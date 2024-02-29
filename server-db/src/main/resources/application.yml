@@ -13,3 +13,20 @@ spring:
     restart:
       # 开启热部署（更改文件后，自动重启）
       enabled: true
+
+#  datasource:
+#    name: huksy
+#    url: jdbc:mysql://localhost:3306/huksy
+#    username: root
+#    password: X14Lidx52!yu
+#    driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    host: 39.99.81.240 # 指定redis所在的host
+    port: 6379 # 指定redis的端口
+    password: 741852 # 设置redis密码
+    lettuce:
+      pool:
+        max-active: 8 # 最大连接数
+        max-idle: 8 # 最大空闲数
+        min-idle: 0 # 最小空闲数
+        max-wait: 100ms # 连接等待时间
