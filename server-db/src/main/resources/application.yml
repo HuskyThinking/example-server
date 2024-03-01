@@ -14,12 +14,12 @@ spring:
       # 开启热部署（更改文件后，自动重启）
       enabled: true
 
-#  datasource:
-#    name: huksy
-#    url: jdbc:mysql://localhost:3306/huksy
-#    username: root
-#    password: X14Lidx52!yu
-#    driver-class-name: com.mysql.jdbc.Driver
+  datasource:
+    name: huksy
+    url: jdbc:mysql://39.99.81.240:3306/husky?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: X14Lidx52!yu
+    driver-class-name: com.mysql.cj.jdbc.Driver
   redis:
     host: 39.99.81.240 # 指定redis所在的host
     port: 6379 # 指定redis的端口
