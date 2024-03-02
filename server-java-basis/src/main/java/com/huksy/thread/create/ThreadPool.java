@@ -1,4 +1,4 @@
-package com.huksy.thread.createth;
+package com.huksy.thread.create;
 
 
 import java.util.concurrent.ExecutorService;
