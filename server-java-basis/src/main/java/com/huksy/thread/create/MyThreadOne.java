@@ -42,9 +42,12 @@ public class MyThreadOne extends Thread{
         MyThreadOne t2 = new MyThreadOne();
         t2.start();
 
+
         //如下操作仍然是在main线程中执行的。
         for (int i = 0; i < 100; i++) {
             if (i % 2 == 0) {
+//                Thread.sleep(100);
+//                Thread.wait(100);
                 System.out.println(Thread.currentThread().getName() + ":" + i + "***********main()************");
             }
         }

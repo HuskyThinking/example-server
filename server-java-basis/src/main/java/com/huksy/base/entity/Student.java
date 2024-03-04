@@ -1,4 +1,4 @@
-package com.huksy.base;
+package com.huksy.base.entity;
 
 import java.util.Objects;
 

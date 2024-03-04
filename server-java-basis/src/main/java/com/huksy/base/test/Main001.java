@@ -1,6 +1,6 @@
 package com.huksy.base.test;
 
-import com.huksy.base.Student;
+import com.huksy.base.entity.Student;
 
 /**
  * @description: Main001
