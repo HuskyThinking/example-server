@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.husky.servermq.demos.web;
+package com.husky.example.demos.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;

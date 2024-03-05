@@ -1,4 +1,4 @@
-package com.husky.servermq;
+package com.husky.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.husky.servermq.demos.web;
+package com.husky.example.demos.web;
 
 /**
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
