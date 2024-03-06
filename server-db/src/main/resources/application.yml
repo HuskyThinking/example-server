@@ -6,7 +6,9 @@ mybatis:
   # 下面这些内容是为了让MyBatis映射指定Mybatis的Mapper文件
   mapper-locations: classpath:mappers/*xml
   # 指定Mybatis的实体目录
-  type-aliases-package: com.husky.serverdb.mybatis.entity
+  type-aliases-package: com.husky.entity
+  configuration:
+    map-underscore-to-camel-case: true
 
 spring:
   devtools:
@@ -15,8 +17,8 @@ spring:
       enabled: true
 
   datasource:
-    name: huksy
-    url: jdbc:mysql://39.99.81.240:3306/husky?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    name: school_exercise
+    url: jdbc:mysql://39.99.81.240:3306/school_exercise?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
     password: X14Lidx52!yu
     driver-class-name: com.mysql.cj.jdbc.Driver
