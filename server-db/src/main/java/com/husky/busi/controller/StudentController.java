@@ -3,12 +3,16 @@ package com.husky.busi.controller;
 import com.husky.annotation.AnnotationTest;
 import com.husky.busi.service.StudentService;
 import com.husky.entity.Student;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.annotation.Resource;
 
 /**
  * @author Axin
@@ -20,7 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("stu")
 public class StudentController {
 
-    @Autowired
+    @Resource
     StudentService studentService;
 
     @RequestMapping(value = "/selectById",method = RequestMethod.GET)

@@ -18,7 +18,7 @@ import java.lang.reflect.Method;
 @Component
 public class TestAopAnnoAspect {
 
-    @Pointcut("execution(* com.husky.busi..*(..))")
+    @Pointcut("@annotation(com.husky.annotation.AnnotationTest)")
     public void PointCut(){
     }
 
@@ -30,12 +30,14 @@ public class TestAopAnnoAspect {
     @Around("PointCut()")
     public Object Around(ProceedingJoinPoint joinPoint) throws Throwable {
         System.out.println("环绕");
-//        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-//        Method method = signature.getMethod();
-//        AnnotationTest annotationTest = method.getAnnotation(AnnotationTest.class);
-//        String type = annotationTest.type();
-//        System.out.println("type 为：" + type);
-        return joinPoint.proceed();
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+        Method method = signature.getMethod();
+        AnnotationTest annotationTest = method.getAnnotation(AnnotationTest.class);
+        String type = annotationTest.type();
+        System.out.println("type 为：" + type);
+        Object result = joinPoint.proceed();
+        System.out.println("环绕结束");
+        return result;
     }
 
     @After("PointCut()")

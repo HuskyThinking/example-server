@@ -1,6 +1,7 @@
 package com.huksy.base.test;
 
-import com.huksy.base.entity.Student;
+import com.huksy.entity.Student;
+import com.huksy.base.example.TestEnum;
 
 /**
  * @description: Main001
@@ -26,6 +27,11 @@ public class Main001 {
         System.out.println(stuOne.equals(stuTwo));
         System.out.println(stuOne.hashCode());
         System.out.println(stuTwo.hashCode());
+
+        System.out.println("-----------------------------");
+        System.out.println(TestEnum.getNameByCode("ET091"));
+        System.out.println(TestEnum.getNameByCode("ET09"));
+
     }
 
 }

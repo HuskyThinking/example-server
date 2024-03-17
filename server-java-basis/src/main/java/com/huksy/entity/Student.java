@@ -1,4 +1,4 @@
-package com.huksy.base.entity;
+package com.huksy.entity;
 
 import java.util.Objects;
 
@@ -15,6 +15,9 @@ public class Student {
     private String name;
 
     private Integer age;
+
+    public Student() {
+    }
 
     public Student(Long id, String name, Integer age) {
         this.id = id;
