@@ -20,44 +20,51 @@ import java.util.List;
 public class StudentController extends Controller {
 
     @Before(GET.class)
-    public void selectById(){
+    public void selectById() {
         String sId = get("id");
         if (!DataUtils.isEmpty(sId)) {
 //            List<Record> list = Db.find("select * from student where s_id = ?",sId);
             List<Student> list = StudentService.me.findStudentById(sId);
             renderJson(new Resp(HuskyConstant.STATUS_SUCCESS, HuskyConstant.SUCCESS,
-                    HuskyConstant.SUCCESS_MSG,list != null && list.size() == 1 ? list.get(0) : null));
+                    HuskyConstant.SUCCESS_MSG, list != null && list.size() == 1 ? list.get(0) : null));
         } else {
             renderJson(new Resp(HuskyConstant.STATUS_FAIL, HuskyConstant.ERROR_REQ_NULL,
-                    HuskyConstant.ERROR_REQ_NULL_MSG,null));
+                    HuskyConstant.ERROR_REQ_NULL_MSG, null));
         }
     }
 
     @Before(POST.class)
-    public void add(){
+    public void add() {
         String json = getRawData();
         Student student = FastJson.getJson().parse(json, Student.class);
-        StudentService.me.saveStudent(student);
+        try {
+            StudentService.me.saveStudent(student);
+        } catch (Exception e) {
+            renderJson(new Resp(HuskyConstant.STATUS_FAIL, HuskyConstant.ERROR_DB,
+                    HuskyConstant.ERROR_DB_MSG, null));
+            return;
+        }
         renderJson(new Resp(HuskyConstant.STATUS_SUCCESS, HuskyConstant.SUCCESS,
-                HuskyConstant.SUCCESS_MSG,null));
+                HuskyConstant.SUCCESS_MSG, null));
+
     }
 
     @Before(GET.class)
-    public void deleteById(){
+    public void deleteById() {
         String sId = get("id");
         // 不同方式调用数据库
-        Db.deleteById("student", "s_id",sId);
+        Db.deleteById("student", "s_id", sId);
         renderJson(new Resp(HuskyConstant.STATUS_SUCCESS, HuskyConstant.SUCCESS,
-                HuskyConstant.SUCCESS_MSG,null));
+                HuskyConstant.SUCCESS_MSG, null));
     }
 
     @Before(POST.class)
-    public void updateById(){
+    public void updateById() {
         String json = getRawData();
         Student student = FastJson.getJson().parse(json, Student.class);
         StudentService.me.updateStudent(student);
         renderJson(new Resp(HuskyConstant.STATUS_SUCCESS, HuskyConstant.SUCCESS,
-                HuskyConstant.SUCCESS_MSG,null));
+                HuskyConstant.SUCCESS_MSG, null));
     }
 
 }

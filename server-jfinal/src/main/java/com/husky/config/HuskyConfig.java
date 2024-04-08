@@ -1,6 +1,8 @@
 package com.husky.config;
 
 import com.husky.HuskyRoutes;
+import com.husky.handler.BlackIpHandler;
+import com.husky.interceptor.StudentInterceptor;
 import com.husky.model._MappingKit;
 import com.jfinal.config.*;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
@@ -76,6 +78,7 @@ public class HuskyConfig extends JFinalConfig {
         /*创建了一个登录拦截器，但拦截规则还未配置
         me.add(new LogInterceptor());
          */
+        me.add(new StudentInterceptor());
     }
 
     /**
@@ -85,7 +88,7 @@ public class HuskyConfig extends JFinalConfig {
      */
     @Override
     public void configHandler(Handlers me) {
-
+        me.add(new BlackIpHandler());
     }
 
 }
