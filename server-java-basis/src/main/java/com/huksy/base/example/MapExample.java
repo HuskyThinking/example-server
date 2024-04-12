@@ -12,7 +12,7 @@ import java.util.HashSet;
  * @description: 集合常见方法示例，场景问题
  * @date 2024/3/4 22:01
  */
-public class CollectionExample {
+public class MapExample {
 
     public static void main(String[] args) {
 //        map();
@@ -25,9 +25,11 @@ public class CollectionExample {
 
     private static void map(){
         HashMap<String,String> hashMap = new HashMap<>();
-        hashMap.put("1","1");
-        hashMap.put("1","2");
+//        hashMap.put("1","1");
+//        hashMap.put("1","2");
         System.out.println(hashMap);
+
+
     }
 
     private static void set(){

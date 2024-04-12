@@ -10,6 +10,8 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
 spring:
+  application:
+    name: service-db
   main:
     allow-circular-references: false #是否可以循环依赖
   devtools:
@@ -48,3 +50,18 @@ pagehelper:
   params: count=countSql
   # 默认值为 false，当该参数设置为 true 时，如果 pageSize=0 或者 RowBounds.limit = 0 就会查询出全部的结果（相当于没有执行分页查询，但是返回结果仍然是 Page 类型）
   page-size-zero: true
+
+# xxl-job 定时任务配置
+xxl:
+  job:
+    admin:
+      # 多个地址使用,分割
+      addresses: http://39.99.81.240:9001/xxl-job-admin
+    accessToken: husky.test
+    executor:
+      appname: xxl-job-executor-${spring.application.name}
+      address:
+      ip:
+      port: 9999
+      logpath: /data/applogs/xxl-job/jobhandler
+      logretentiondays: 30
