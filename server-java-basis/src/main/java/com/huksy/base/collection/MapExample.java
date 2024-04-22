@@ -1,4 +1,4 @@
-package com.huksy.base.example;
+package com.huksy.base.collection;
 
 import com.huksy.entity.Student;
 import com.huksy.stream.entity.Actor;

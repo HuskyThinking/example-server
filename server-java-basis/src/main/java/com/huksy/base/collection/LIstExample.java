@@ -1,6 +1,4 @@
-package com.huksy.base.example;
-
-import java.util.ArrayList;
+package com.huksy.base.collection;
 
 public class LIstExample {
 

@@ -1,6 +1,4 @@
-package com.huksy.base.example;
-
-import com.sun.deploy.util.StringUtils;
+package com.huksy.base.collection;
 
 import java.util.Objects;
 
