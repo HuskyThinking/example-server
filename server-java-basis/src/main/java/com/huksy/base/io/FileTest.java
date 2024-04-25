@@ -6,7 +6,6 @@ import cn.hutool.core.io.FileUtil;
 
 import java.io.File;
 import java.util.Date;
-import java.util.Timer;
 
 public class FileTest {
 
@@ -22,10 +21,12 @@ public class FileTest {
             String content = applyId + "   " + successFlag + "\n";
             contents.append(content);
         }
-        contents.insert(0,"chushu \\n");
-        FileUtil.appendUtf8String(contents.toString(),"E:\\GitRepository\\" + fileName);
-        Date date = DateUtil.parse("20240405","yyyyMMdd");
+        contents.insert(0, "chushu \\n");
+        FileUtil.appendUtf8String(contents.toString(), "E:\\GitRepository\\" + fileName);
+        Date date = DateUtil.parse("20240405", "yyyyMMdd");
         System.out.println(date);
+//        Boolean f = true;
+//        System.out.println(f.toString());
     }
 
 }
