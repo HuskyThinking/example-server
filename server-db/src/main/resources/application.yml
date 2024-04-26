@@ -1,3 +1,17 @@
 spring:
   profiles:
-    active: uat
+    active: dev
+
+my:
+  info:
+    appName: service-db
+
+logging:
+  config: classpath:logback-spring.xml # logback日志配置
+  yh:
+    logFileHome: # 各个环境的配置文件目录
+      dev: E:\logs
+      test: /data/logs
+      pro: /data/logs
+    pattern: "%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level [%thread] %c [%L] -| %msg%n"
+    maxHistory: 100 # 最大保存100个（天）的历史文件
