@@ -1,9 +1,5 @@
 package com.husky.serverdb;
 
-import com.husky.busi.service.StudentService;
-import com.husky.busi.service.impl.StudentServiceImpl;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

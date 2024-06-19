@@ -1,24 +1,21 @@
 package com.husky.business.school.model;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
- * <p>
- * 
- * </p>
- *
  * @author Axin
- * @since 2024-06-19
+ * @version 1.0
+ * @description: TODO
+ * @date 2024/6/19 23:17
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-@TableName("user_role")
-public class UserRoleDO implements Serializable {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Staff {
 
     private static final long serialVersionUID=1L;
 
@@ -33,14 +30,28 @@ public class UserRoleDO implements Serializable {
     private String userId;
 
     /**
-     * 规则编号
+     * 姓名
      */
-    private String roleId;
+    private String name;
+
+    /**
+     * 身份证号
+     */
+    private String idNo;
+
+    /**
+     * 手机号
+     */
+    private String mobile;
 
     /**
      * 有效状态(1有效 0无效)
      */
     private Boolean state;
 
+    /**
+     * 规则编号
+     */
+    private String roleId;
 
 }
