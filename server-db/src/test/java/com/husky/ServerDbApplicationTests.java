@@ -15,7 +15,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import java.util.List;
 
 @SpringBootTest
-@EnableAspectJAutoProxy(proxyTargetClass = true)
 class ServerDbApplicationTests {
 
     @Autowired
