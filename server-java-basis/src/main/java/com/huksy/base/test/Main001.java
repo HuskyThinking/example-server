@@ -1,7 +1,7 @@
 package com.huksy.base.test;
 
 import com.huksy.entity.Student;
-import com.huksy.base.example.TestEnum;
+import com.huksy.base.collection.TestEnum;
 
 /**
  * @description: Main001

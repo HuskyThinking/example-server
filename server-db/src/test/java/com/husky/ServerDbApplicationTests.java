@@ -37,6 +37,7 @@ class ServerDbApplicationTests {
     @Test
     void aopTest() {
         PageHelper.startPage(1, 2);
+        String s = "";
         List<Student> list = studentMapper.selectStudentByPage();
         PageInfo<Student> pageInfo = new PageInfo<Student>(list);
         System.out.println(list);
