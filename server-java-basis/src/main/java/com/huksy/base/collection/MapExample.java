@@ -3,8 +3,7 @@ package com.huksy.base.collection;
 import com.huksy.entity.Student;
 import com.huksy.stream.entity.Actor;
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 /**
  * @author Axin
@@ -16,11 +15,12 @@ public class MapExample {
 
     public static void main(String[] args) {
 //        map();
-        Student student = new Student();
-        Actor actor = new Actor("11");
-        System.out.println(Integer.toString(actor.hashCode(), 2));
-        System.out.println(Integer.toString(actor.hashCode() >>> 16, 2));
-        System.out.println(Integer.toString(actor.hashCode() ^ (actor.hashCode() >>> 16), 2));
+
+//        Student student = new Student();
+//        Actor actor = new Actor("11");
+//        System.out.println(Integer.toString(actor.hashCode(), 2));
+//        System.out.println(Integer.toString(actor.hashCode() >>> 16, 2));
+//        System.out.println(Integer.toString(actor.hashCode() ^ (actor.hashCode() >>> 16), 2));
     }
 
     private static void map(){
@@ -37,7 +37,9 @@ public class MapExample {
     }
 
     private static void list(){
-
+        List<Object> nums = Arrays.asList();
+        System.out.println(nums);
+        System.out.println(nums.get(0));
     }
 
 

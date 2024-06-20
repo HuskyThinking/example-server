@@ -1,28 +1,23 @@
 package com.husky;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.husky.busi.dao.StudentMapper;
-import com.husky.busi.service.StudentService;
-import com.husky.busi.service.impl.NES001Trigger;
-import com.husky.busi.service.impl.StudentServiceImpl;
+import com.husky.business.school.model.Staff;
+import com.husky.business.school.service.UserService;
 import com.husky.entity.Student;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @SpringBootTest
-@EnableAspectJAutoProxy(proxyTargetClass = true)
 class ServerDbApplicationTests {
 
-    @Autowired
-    private StudentMapper studentMapper;
-
-    @Autowired
-    private NES001Trigger nes001Trigger;
+    @Resource
+    private UserService userService;
 
     @Test
     void contextLoads() throws Exception {
@@ -31,17 +26,20 @@ class ServerDbApplicationTests {
 //        System.out.println(student);
 //        DealMsgBaseTrigger iDealMsgBaseTrigger = (DealMsgBaseTrigger)nes001Trigger;
 //        iDealMsgBaseTrigger.execute("1","1");
-        StudentService studentService = new StudentServiceImpl();
-
+//        StudentService studentService = new StudentServiceImpl();
+        Page<Staff> page = new Page<>();
+        page.setCurrent(2L);
+        page.setSize(3L);
+        userService.page(page);
     }
 
     @Test
     void aopTest() {
         PageHelper.startPage(1, 2);
-        String s = "";
-        List<Student> list = studentMapper.selectStudentByPage();
-        PageInfo<Student> pageInfo = new PageInfo<Student>(list);
-        System.out.println(list);
+//        String s = "";
+////        List<Student> list = studentMapper.selectStudentByPage();
+//        PageInfo<Student> pageInfo = new PageInfo<Student>(list);
+//        System.out.println(list);
     }
 
 }
