@@ -1,13 +1,12 @@
 package com.husky.business.school.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.husky.business.school.model.Staff;
 import com.husky.business.school.model.UserDO;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * <p>
@@ -21,5 +20,5 @@ import java.util.List;
 @Mapper
 public interface UserMapper extends BaseMapper<UserDO> {
 
-    List<Staff> page(@Param("current") int current, @Param("size") int size);
+    Page<Staff> page(@Param("current") int current, @Param("size") int size);
 }

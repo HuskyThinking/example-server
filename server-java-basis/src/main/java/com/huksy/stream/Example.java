@@ -17,10 +17,10 @@ import java.util.stream.Stream;
 public class Example {
 
     public static void main(String[] args) {
-        filterTest();
-        limitTest();
-        forEachTest();
-        mapTest();
+//        filterTest();
+//        limitTest();
+//        forEachTest();
+//        mapTest();
         test();
     }
 

@@ -21,7 +21,6 @@
         from user as a
         left join user_role as r on a.user_id = r.user_id
         where r.role_id = 1
-        limit #{current},#{size}
     </select>
 
 </mapper>

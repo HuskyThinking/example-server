@@ -1,31 +1,16 @@
 server:
   # 应用服务 WEB 访问端口
-  port: 8083
+  port: 8082
 
-#mybatis:
-#  # 下面这些内容是为了让MyBatis映射指定Mybatis的Mapper文件
-#  mapper-locations: classpath:mapper/*xml
-#  # 指定Mybatis的实体目录
-#  type-aliases-package: com.husky.entity
-#  configuration:
-#    map-underscore-to-camel-case: true
 mybatis-plus:
   configuration:
     #开启驼峰命名自动映射
     map-underscore-to-camel-case: true
     #开启日志打印
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  type-aliases-package: com.husky.entity
+  #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.husky.business.school
   #扫描mapper文件
   mapper-locations: classpath:mapper/*.xml
-
-spring:
-  profiles:
-    active: dev
-
-my:
-  info:
-    appName: service-db
 
 logging:
   config: classpath:logback-spring.xml # logback日志配置
