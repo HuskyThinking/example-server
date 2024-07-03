@@ -1,5 +1,6 @@
 package com.husky.business.school.model;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -25,21 +26,25 @@ public class UserRoleDO implements Serializable {
     /**
      * 银行号
      */
+    @TableId("bank")
     private String bank;
 
     /**
      * 用户编号
      */
+    @TableField("user_id")
     private String userId;
 
     /**
      * 规则编号
      */
+    @TableField("role_id")
     private String roleId;
 
     /**
      * 有效状态(1有效 0无效)
      */
+    @TableField("state")
     private Boolean state;
 
 

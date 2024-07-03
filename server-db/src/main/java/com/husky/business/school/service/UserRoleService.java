@@ -13,4 +13,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface UserRoleService extends IService<UserRoleDO> {
 
+    boolean update(UserRoleDO userRoleDO,String roleId);
+
 }
